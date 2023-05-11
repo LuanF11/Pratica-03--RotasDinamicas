@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo_pagina }}</title>
+    <style>
+        .usuario {
+            text-align: right;
+        }
+
+        .produto {
+            width: 100px;
+            height: 100px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+    <header>
+        {% include "menu.html" %}
+
+        <p class="usuario">
+            {% block usuario %}{% endblock %}
+        </p>
+    </header>
+    <h1>{% block main %}{% endblock %}</h1>
+
+
+    <h2>{% block contatos %}{% endblock %}</h2>
+
+    <section>{% block servicos %}{% endblock %}</section>
+
+
+    {% if pagina_produtos %}
+    <section>
+        <div class="produto">{% block produto %}{% endblock %}</div>
+    </section>
+    {% endif %}
+
+
+    {% include "rodape.html" %}
+</body>
+
+</html>
