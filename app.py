@@ -31,10 +31,12 @@ def servicos(nome_usuario = None):
         nome_usuario = "Faça login"
     return rt("./paginas/servicos.html",titulo_pagina = titulo_pagina,nome_usuario = nome_usuario)
 
+# Rota sem argumento e com argumento
 @app.route('/produtos/')
 @app.route('/produtos/<nome_usuario>')
 def produtos(nome_usuario = None):
     titulo_pagina = "Produtos"
+    # Verifica se o valor do argumento é nulo
     if nome_usuario is None:
         nome_usuario = "Faça login"
     return rt("./paginas/produtos.html",titulo_pagina = titulo_pagina,nome_usuario = nome_usuario,pagina_produtos = True)
